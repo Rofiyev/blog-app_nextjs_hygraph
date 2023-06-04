@@ -1,24 +1,48 @@
-import Head from "next/head";
 import Layout from "../layout/layout";
-import { Hero, Sidebar } from "../components";
+import { Content, Hero, Sidebar } from "../components";
 import { Container } from "@mui/material";
+import { GetServerSideProps } from "next";
+import { BlogsService } from "../services/blog.services";
+import { BlogsType } from "../interface/blogs.interface";
+import { CategorysType } from "../interface/category.interface";
+import SEO from "../layout/seo/seo";
 
-export default function Home() {
+export default function Home({
+  blogs,
+  latestBlogs,
+  categories,
+}: HomePageProps) {
   return (
-    <>
-      <Head>
-        <title>Rof1yev Next App</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-        <meta name="description" content="Rofiyev Dilshod" />
-      </Head>
+    <SEO metaTitle="Rof1yev Next App">
       <Layout>
-        <Hero />
-        <Container sx={{ display: "flex", gap: "20px" }}>
-          <Sidebar />
-          {/* <Content /> */}
+        <Hero blogs={blogs.slice(0, 4)} />
+        <Container
+          sx={{
+            display: "flex",
+            gap: "20px",
+            flexDirection: { xs: "column-reverse", md: "row" },
+            py: "20px",
+          }}
+        >
+          <Sidebar latestBlogs={latestBlogs} categories={categories} />
+          <Content blogs={blogs} />
         </Container>
       </Layout>
-    </>
+    </SEO>
   );
+}
+
+export const getServerSideProps: GetServerSideProps<
+  HomePageProps
+> = async () => {
+  const blogs = await BlogsService.getAllBlogs();
+  const latestBlogs = await BlogsService.getLatestBlog();
+  const categories = await BlogsService.getCategorys();
+  return { props: { blogs, latestBlogs, categories } };
+};
+
+interface HomePageProps {
+  blogs: BlogsType[];
+  latestBlogs: BlogsType[];
+  categories: CategorysType[];
 }

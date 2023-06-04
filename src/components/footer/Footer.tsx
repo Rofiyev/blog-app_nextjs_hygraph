@@ -12,7 +12,7 @@ const socials: React.ReactElement[] = [
   <LinkedInIcon style={{ color: "white" }} />,
 ];
 
-const Footer = () => {
+const Footer = (): JSX.Element => {
   return (
     <Box
       sx={{
@@ -20,6 +20,7 @@ const Footer = () => {
         color: "white",
         padding: "20px",
       }}
+      borderTop={"1px solid rgba(255, 255, 255, .5)"}
     >
       <Container
         sx={{

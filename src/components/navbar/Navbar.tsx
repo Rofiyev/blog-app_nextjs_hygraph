@@ -18,20 +18,22 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { navItems } from "../../config/constants";
 import CloseIcon from "@mui/icons-material/Close";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Image from "next/image";
+import logo from "../../assets/images/logo-2.png";
 
 interface Props {
   window?: () => Window;
 }
 const drawerWidth = 100;
 
-const Navbar = (props: Props) => {
+const Navbar = (props: Props): JSX.Element => {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = useState(false);
+  const router = useRouter();
 
-  const handleDrawerToggle = () => {
-    setMobileOpen((prevState) => !prevState);
-  };
-
+  const handleDrawerToggle = () => setMobileOpen((prevState) => !prevState);
   const container =
     window !== undefined ? () => window().document.body : undefined;
 
@@ -52,7 +54,13 @@ const Navbar = (props: Props) => {
                 },
               }}
             >
-              Rof1yev
+              <Link
+                href={"/"}
+                style={{ display: "flex", alignItems: "center" }}
+              >
+                <Image src={logo} width={60} height={60} />
+                Rof1yev
+              </Link>
             </Typography>
             <IconButton
               color="inherit"
@@ -66,6 +74,7 @@ const Navbar = (props: Props) => {
             <Box sx={{ display: { xs: "none", sm: "block" } }}>
               {navItems.map(({ slug, title }) => (
                 <Button
+                  onClick={() => router.push(slug)}
                   key={title}
                   sx={{
                     color: "#fff",
@@ -87,10 +96,11 @@ const Navbar = (props: Props) => {
           open={mobileOpen}
           onClose={handleDrawerToggle}
           ModalProps={{
-            keepMounted: true, // Better open performance on mobile.
+            keepMounted: true,
           }}
           sx={{
             display: { xs: "block", sm: "none" },
+            background: "#121212 !important",
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: `${drawerWidth}%`,
@@ -106,8 +116,14 @@ const Navbar = (props: Props) => {
               <Typography
                 variant="h5"
                 component={"h5"}
-                sx={{ my: 2, fontWeight: "bold" }}
+                sx={{
+                  my: 2,
+                  fontWeight: "bold",
+                  display: "flex",
+                  alignItems: "center",
+                }}
               >
+                <Image src={logo} width={60} height={60} />
                 Rof1yev
               </Typography>
               <IconButton onClick={handleDrawerToggle}>
@@ -117,15 +133,13 @@ const Navbar = (props: Props) => {
             <Divider />
             <List>
               {navItems.map(({ slug, title }) => (
-                <ListItem
-                  key={title}
-                  disablePadding
-                  onClick={handleDrawerToggle}
-                >
-                  <ListItemButton sx={{ textAlign: "center" }}>
-                    <ListItemText primary={title} />
-                  </ListItemButton>
-                </ListItem>
+                <Link key={title} href={slug}>
+                  <ListItem disablePadding onClick={handleDrawerToggle}>
+                    <ListItemButton sx={{ textAlign: "center" }}>
+                      <ListItemText primary={title} />
+                    </ListItemButton>
+                  </ListItem>
+                </Link>
               ))}
             </List>
           </Box>
