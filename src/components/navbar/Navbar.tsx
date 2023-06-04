@@ -113,19 +113,19 @@ const Navbar = (props: Props): JSX.Element => {
               justifyContent={"space-between"}
               alignItems={"center"}
             >
-              <Typography
-                variant="h5"
-                component={"h5"}
-                sx={{
-                  my: 2,
-                  fontWeight: "bold",
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              >
+              <Box sx={{ display: "flex", alignItems: "center" }}>
                 <Image src={logo} width={60} height={60} />
-                Rof1yev
-              </Typography>
+                <Typography
+                  variant="h5"
+                  component={"h5"}
+                  sx={{
+                    my: 2,
+                    fontWeight: "bold",
+                  }}
+                >
+                  Rof1yev
+                </Typography>
+              </Box>
               <IconButton onClick={handleDrawerToggle}>
                 <CloseIcon />
               </IconButton>
