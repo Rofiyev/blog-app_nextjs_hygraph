@@ -58,7 +58,7 @@ const Navbar = (props: Props): JSX.Element => {
                 href={"/"}
                 style={{ display: "flex", alignItems: "center" }}
               >
-                <Image src={logo} width={60} height={60} />
+                <Image src={logo} width={60} height={60} alt="Logo" />
                 Rof1yev
               </Link>
             </Typography>
@@ -114,7 +114,7 @@ const Navbar = (props: Props): JSX.Element => {
               alignItems={"center"}
             >
               <Box sx={{ display: "flex", alignItems: "center" }}>
-                <Image src={logo} width={60} height={60} />
+                <Image src={logo} width={60} height={60} alt="Logo" />
                 <Typography
                   variant="h5"
                   component={"h5"}
