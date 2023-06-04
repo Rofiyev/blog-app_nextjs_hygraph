@@ -3,7 +3,6 @@ import { CategorysType } from "../../interface/category.interface";
 import Layout from "../../layout/layout";
 import { Box, Button, ButtonGroup, Typography } from "@mui/material";
 import { useRouter } from "next/router";
-import { navItems } from "../../config/constants";
 import { BlogsService } from "../../services/blog.services";
 import SEO from "../../layout/seo/seo";
 
