@@ -19,7 +19,7 @@ const DetailBlog = ({
   const router = useRouter();
 
   return (
-    <SEO metaTitle={router.query.slug}>
+    <SEO metaTitle={blog.title}>
       <Layout>
         <Container>
           <Box

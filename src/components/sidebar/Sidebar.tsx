@@ -6,7 +6,7 @@ import { SidebarProps } from "./Sidebar.props";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
-const Sidebar = ({ latestBlogs, categories }: SidebarProps[]): JSX.Element => {
+const Sidebar = ({ latestBlogs, categories }: SidebarProps): JSX.Element => {
   const router = useRouter();
   return (
     <Box
