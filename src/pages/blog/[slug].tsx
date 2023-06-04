@@ -9,14 +9,12 @@ import { format } from "date-fns";
 import { Sidebar } from "../../components";
 import { CategorysType } from "../../interface/category.interface";
 import SEO from "../../layout/seo/seo";
-import { useRouter } from "next/router";
 
 const DetailBlog = ({
   blog,
   latestBlogs,
   categories,
 }: DetailedBlogsPageProps): JSX.Element => {
-  const router = useRouter();
 
   return (
     <SEO metaTitle={blog.title}>
