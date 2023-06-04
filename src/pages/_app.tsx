@@ -1,5 +1,5 @@
+import "../styles/globals.css";
 import type { AppProps } from "next/app";
-import NProgress from "nprogress";
 import { CacheProvider, EmotionCache } from "@emotion/react";
 import createEmotionCache from "../helpers/create-emation-cashe";
 import Head from "next/head";
@@ -8,7 +8,7 @@ import theme from "../helpers/theme";
 import { useEffect } from "react";
 import Router from "next/router";
 // NProgress Bar
-import "../styles/globals.css";
+import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
 
