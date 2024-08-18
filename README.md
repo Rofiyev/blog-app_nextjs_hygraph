@@ -12,7 +12,7 @@ A small blog project using NextJS and Hygraph that has the ability to handle que
 
    ```bash
    git clone https://github.com/Rofiyev/blog-app_nextjs_hygraph.git
-   cd hygraph_nextjs
+   cd blog-app_nextjs_hygraph
    ```
 
 2. Install the dependencies:
