@@ -11,7 +11,7 @@ A small blog project using NextJS and Hygraph that has the ability to handle que
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/Rofiyev/hygraph_nextjs.git
+   git clone https://github.com/Rofiyev/blog-app_nextjs_hygraph.git
    cd hygraph_nextjs
    ```
 
